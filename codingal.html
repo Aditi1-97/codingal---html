@@ -1,49 +1,53 @@
 <!DOCTYPE html>
     <html>
     <head>
- <title>Semantic HTML</title>
-</head>
+ <title>Forms in HTML</title>
+  </head>
         <body>
-            <header>
-             <h1>Navigational links</h1>
-             <nav>
-              <ul>
-                <li><a href="#Home">Home</a></li>
-                  <li><a href="#Posts">Posts</a></li>
-                    <li><a href="#Contact">Contact</a></li>
-              </ul>
-             </nav>
-            </header>
+            <form>
+               <fieldset>
+               <legend>Personal Information</legend>
 
-            <main>
-              <section>
-               <article>
-                 <h2>Facts about Dogs</h2>
-                <p>Dogs are domesticated carnivores belonging to the family of Canidae. 
-                They belong to the mammal category as female dogs can give birth to puppies.     
-                </p>
-                </article>
-                 <article>
-              <p>  They also have mammary glands, and nourish the puppies with milk. Dogs are known to be good swimmers and also friendly and helpful to humans.
-                   Dogs were the first species to be domesticated by humans over 15,000 years before the development of agriculture.
-              </p>
-                 </article>
-              </section>
-               <section>
-                   <figure>
-                  <img src="image.jpeg">
-                  <figcaption>A flower</figcaption>
-                   </figure>
+               <label>Full Name</label>
+               <input type="text" > <br> <br>
 
-                   <audio src="audio.mp3"controls></audio>
-                   <video src="video.mp4" width="300"  height="200" controls></video>
-               </section>
-            </main>
+               <label>Email</label>
+               <input type="email"> <br> <br>
 
-            <footer>
-                <p>Contact me at +91 8808 778778</p>
-            </footer>
-        </body>
+               <label>Phone Number</label>
+               <input type="number"> <br> <br>
+
+               <label>Password</label>
+               <input type="password"> <br> <br>
+
+               <label>Birth date</label>
+               <input type="date" > <br> <br>
+
+               <label>Gender</label> <br>
+               <input type="radio">Male <br>
+                <input type="radio">Female <br> <br>
+
+                <label>Skills</label> <br>
+                <input type="checkbox">Html <br>
+                <input type="checkbox">Css <br>
+                <input type="checkbox">JavaScript <br> <br>
+
+                <label>Favourite Subject</label>
+                <select>
+                 <option>Maths</option>
+                 <option>English</option>
+                 <option>Science</option>
+                 <option>Ict</option>
+                </select> <br> <br>
+
+                <input type="submit" value="submit">
+
+            
+               </fieldset>
+
+            </form>
+           
+        </body>    
 
     </html>
 
