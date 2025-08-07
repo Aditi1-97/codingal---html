@@ -1,57 +1,49 @@
 <!DOCTYPE html>
     <html>
     <head>
-        <title>Intro to Css</title>
-        <style>
-           h2{
-              color:rgb(156, 213, 106);
-            text-align: right;
-           }
-            
-           h4{
-               color: rgb(97, 194, 154);
-           }
-
-             h5,
-             h6,
-             p {
-              color: rgb(195, 178, 26);
-               text-align: center;
-             }
-
-             #codingal{
-                 color: rosybrown;
-                 text-align: justify;
-             }
-        </style>
-
-        <link rel="stylesheet" href="style.css">
-
-  </head>
+ <title>Semantic HTML</title>
+</head>
         <body>
-    </p>
-       <h1 style="color: rgb(232, 144, 20); text-align: center;">Welcome to Codingal</h1>
-       <h2>Welcome to Codingal</h2>
-       <h3>Welcome to Codingal</h3>
+            <header>
+             <h1>Navigational links</h1>
+             <nav>
+              <ul>
+                <li><a href="#Home">Home</a></li>
+                  <li><a href="#Posts">Posts</a></li>
+                    <li><a href="#Contact">Contact</a></li>
+              </ul>
+             </nav>
+            </header>
 
-       <h4>Welcome to Codingal</h4>
-       <h4>Welcome to Codingal</h4>
-       <h4>Welcome to Codingal</h4>
+            <main>
+              <section>
+               <article>
+                 <h2>Facts about Dogs</h2>
+                <p>Dogs are domesticated carnivores belonging to the family of Canidae. 
+                They belong to the mammal category as female dogs can give birth to puppies.     
+                </p>
+                </article>
+                 <article>
+              <p>  They also have mammary glands, and nourish the puppies with milk. Dogs are known to be good swimmers and also friendly and helpful to humans.
+                   Dogs were the first species to be domesticated by humans over 15,000 years before the development of agriculture.
+              </p>
+                 </article>
+              </section>
+               <section>
+                   <figure>
+                  <img src="image.jpeg">
+                  <figcaption>A flower</figcaption>
+                   </figure>
 
-       <h5>Welcome to Codingal</h5>
-       <h6>Welcome to Codingal</h6>
+                   <audio src="audio.mp3"controls></audio>
+                   <video src="video.mp4" width="300"  height="200" controls></video>
+               </section>
+            </main>
 
-       <p>Hey! We are learning Css</p>
-        <p>Hey! We are learning Css</p>
-         <p id="codingal">Hey! We are learning Css</p>
-       <p>Hey! We are learning Css</p>
-       <p>Hey! We are learning Css</p>
-       <p class="group">Hey! We are learning Css</p>
-       <p class="group">Hey! We are learning Css</p>
-       <p class="group">Hey! We are learning Css</p>
-        
-
-        </body>    
+            <footer>
+                <p>Contact me at +91 8808 778778</p>
+            </footer>
+        </body>
 
     </html>
 
