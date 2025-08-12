@@ -3,27 +3,36 @@
     <head>
         <title>Typography</title>
         <style>
-            .welcome{
-                font-size: large;
-                font-weight: 800;
-                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-                text-transform: uppercase;
-                 text-decoration: overline underline;
-                text-align: center;
+            .box{
+             width: 100px;
+             height: 100px;
+             background-color: aquamarine;
+             margin: 50px auto;
+             border-radius: 20px;
+
+             animation-name: bounce;
+             animation-duration: 2s;
+             animation-iteration-count: infinite;
             }
 
-            .shadow{
-                 font-size: 80px;
-                text-align: left;
-                 text-shadow: 50px 20px 30px blueviolet;
+            @keyframes bounce{
+
+                0%{
+                    transform: translateY(0) scale(1) rotate(0deg) ;
+                }
+                
+                50%{
+                    transform: translateY(300px) scale(2) rotate(180deg) ;
+                } 
+
+                100%{
+                    transform: translateY(0) scale(1) rotate(0deg) ;
+                }
+                
+
             }
 
-            .shadow2{
-                font-size: 60px;
-                text-align: center;
-                box-shadow: 40px 20px 30px greenyellow;
-            }
-
+            
         </style>
         
 
@@ -31,11 +40,6 @@
 
 
       <body>
-        <p class="welcome">Welcome to Codingal</p>
-
-        <p class="shadow">Hey we are learning Css</p>
-
-        <p class="shadow2">Hey we are learning Css</p>
-    
+        <div class="box"></div>
       </body>
     </html>
