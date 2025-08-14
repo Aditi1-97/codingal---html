@@ -1,71 +1,172 @@
 <!DOCTYPE html>
     <html>
     <head>
-        <title>Typography</title>
-        <style>
-            .box{
-             width: 100px;
-             height: 100px;
-             background-color: rgb(3, 9, 77);
-             margin: 50px auto;
-             border-radius: 20px;
+        <title>Advance Selectors,Pseudo Classes and Elements</title>
 
-             animation-name: bounce;
-             animation-duration: 2s;
-             animation-iteration-count: infinite;
-            }
+        <style>  
+        body{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: rgb(230, 236, 241);
+            color: rgb(113, 182, 182);
+            padding: 10px;
+        }
 
-            @keyframes bounce{
+        .c{
+          width: 300px;
+          margin: 10px auto;
+          padding: 10px;
+          background-color: rgb(126, 189, 214);
+          border-radius: 10px;
+          box-shadow: 0px 1px 3px black(0, 0 ,0, 0.1);
 
-                0%{
-                    transform: translateY(0) scale(1) rotate(0deg) ;
-                }
-                
-                50%{
-                    transform: translateY(300px) scale(3) rotate(180deg) ;
-                } 
+        }
 
-                100%{
-                    transform: translateY(0) scale(1) rotate(0deg) ;
-                }
-                
+        h1{
+          font-size: 20px;
+          text-align: center;
+          color: bisque;
+          margin-bottom: 10px;
+        }
 
-            }
-             .welcome{
-                font-size: large;
-                font-weight: 800;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                text-transform: uppercase;
-                 text-decoration: overline underline;
-                text-align: center;
-            }
+        h2{
+            font-size: 16px;
+           color: aqua;
+           margin-top: 15px;
+           margin-bottom: 5px;
+        }
+           
+        p{
+            margin-bottom: 8px;
+            line-height: 18px;
+            color: #132478;
+        } 
 
-            .shadow{
-                 font-size: 40px;
-                text-align: left;
-                 text-shadow: 50px 20px 30px rgb(113, 57, 166);
-            }
+        ul{
+         list-style-type: none;
+         padding-left: 0px;
+         margin-bottom: 10px;
+        }
 
-            .shadow2{
-                font-size: 30px;
-                text-align: center;
-                box-shadow: 40px 20px 30px rgb(210, 225, 72);
-            }
+        li{
+            padding: 3px 0px;
+        }
 
+        button,
+        input{
+            padding: 5px 10px;
+            border-radius: 3px;
+            border: 1px solid #e34949;
+            margin-right: 5px;
+            margin-bottom: 8px;
+        }
 
-            
+        button{
+            background-color: rgb(51, 84, 90);
+            color: rgb(0, 1, 1);
+            cursor: pointer;
+        }
+
+        .card{
+            padding: 8px;
+            background-color: rgba(48, 145, 186, 0.415);
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+
+        a{
+          color: rgb(46, 12, 78);
+          text-decoration: none;
+        }
+
+        /*advanced selectors*/
+        ul>li{
+            color: rgb(18, 13, 97);
+            font-size: 30px;
+        }
+
+        /*Attribute selector*/
+        .card p{
+            color: rgb(8, 21, 42);
+            font-weight: bold;
+        }
+
+        /*when you will put your mouse over the button this is the hover effect*/
+        button:hover{
+            background-color: black;
+            color: aquamarine;
+        }
+
+        /*when you will click the button your button will be active*/
+        button:active{
+            color: #017bff;
+            background-color: aquamarine;
+        }
+
+        /* :target */
+         input:focus {
+            background-color: rgb(146, 211, 186);
+         }
+
+         li:not(:last-child) {
+            font-size: 80px;
+         }
+
+         h2::before{
+            content: "😈 hey we are learning Css";
+            color: #0a6759;
+         }
+
+         h2::after{
+            content: "😈hey we are learning Css";
+            color: #132478 ;
+         }
+
+         /* ::after (using Unicode for square)*/
+         .intro-p::first-line{
+            font-style: italic;
+            color: antiquewhite;
+         } 
+
+         ::selection{
+            background-color: black;
+            color: aliceblue;
+         }
+    
         </style>
         
 
  </head>
 
 
-      <body>
-        <div class="box"></div>
-        <p class="welcome">Welcome to Codingal</p>
+      <body> 
+        <div class="c">
+            <h1>Css Demo</h1>
+            <p class="intro-p">Advanced Css in action. Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Temporibus dolores voluptates odio doloribus possimus quisquam maxime culpa in consectetur itaque? Molestias,
+             reiciendis unde nobis quo blanditiis, nisi perspiciatis suscipit doloribus dicta optio ab sequi quia quas.
+            Architecto consequatur praesentium accusamus sequi, soluta explicabo molestiae fuga sit harum in dolores veniam?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Iusto voluptate at amet, esse qui exercitationem dignissimos id doloremque sunt repellendus.</p>
 
-        <p class="shadow">Hey we are learning Css</p>
+            <h2>Selectors</h2>
 
-        <p class="shadow2">Hey we are learning Css</p>
+            <p>A paragraph</p>
+            <ul>
+                <li>Item 1</li>
+                 <li>Item 2</li>
+                  <li>Item 3</li>
+            </ul>
+
+            <a href="">Target Link</a> <br>
+
+             <div class="card">
+                <p>Cards content</p>
+             </div>
+            
+             <button>Hover/Active</button>
+             <input type="text" placeholder="Focus here">
+
+
+        </div>
       </body>
     </html>
