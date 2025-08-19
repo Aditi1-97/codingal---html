@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <title>Box Model </title>
+  <title>Display flex</title>
   <style>
-    p {
-     background-color: orange;
-     margin-left: 400px;
-     margin-right: 400px;
-     margin-top: 400px;
-     margin-bottom: 400px;
-     padding-left: 300px; 
-     padding-top: 300px;
-     padding-bottom: 300px;
-     border: 10px solid orangered;
+
+    .box {
+     height: 400px;
+     width: 400px;
+    }
+
+    .first{
+        background-color: rgb(157, 205, 240);
+        border: 5px solid rgb(86, 157, 207);
+    }
+
+    .second{
+         background-color: orange;
+         border: 5px solid orangered;
+    }
+    
+    .third{
+         background-color: greenyellow;
+         border: 5px solid green;
+    }
+
+    .parent{
+       display: flex;
+       flex-direction: row;
+       gap: 50px;
+       flex-wrap: wrap;
+       justify-content: space-between;
     }
 
   </style>
@@ -21,8 +38,17 @@
 
   <body>
 
-    <p>Welcome to Codinagl</p>
+  <div class="parent">
+
+    <div class="box first"></div>
+
+     <div class="box second"></div>
+ 
+     <div class=" box third"></div>
+
+  </div>
     
+
   </body>
 
 
