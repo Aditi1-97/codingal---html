@@ -1,11 +1,65 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <title>Opacity</title>
+  <title>Opacity</title><!DOCTYPE html>
+<html>
+  <head>
+  <title>Position in Css</title>
   <style>
+    .static{
+      position: static;
+      height: 100px;
+      width: 800px;
+      background-color: aqua;
+      margin-bottom: 200px;
+    }
+
+    .fixed{
+      position: fixed;
+      height: 50px ;
+      width: 50px;
+      bottom: 0px;
+      right: 0px;
+      background-color: aquamarine;
+    }
+
+    .sticky{
+        position: sticky;
+        height: 100px;
+        width: 800px;
+        background-color: rgb(29, 98, 130);
+        top: 0;
+    }
+
+    .relative{
+         position: relative;
+         height: 100px;
+         width: 800px;
+        background-color: rgb(217, 180, 135);
+        margin-bottom: 200px;
+        left: 100px;
+        top: 250px;
+        z-index: 50px;
+    }
+
+    .parent{
+          position: relative;
+          height: 500px;
+          width: 1000px;
+          background-color: rgb(157, 198, 62);
+    }
+
+    .child{
+        position: absolute;
+        height: 50px;
+       width: 100px;
+       background-color: rgb(107, 191, 157);
+       top: 100px;
+       left: 300px;
+    }
 
     .box{
-      background-color: chartreuse;
+      background-color: rgb(2, 36, 81);
       height: 100px;
     }
 
@@ -24,9 +78,7 @@
     .fourth{
       opacity: 1;
     }
-
-    
-  </style>
+    </style>
 
   </head>
 
@@ -38,6 +90,28 @@
     <div class="box third"></div>
     
     <div class="box fourth"></div>
+
+    <div class="static">Welcome to codingal</div>
+
+    <div class="fixed"></div>
+
+    <div class="relative">position relative</div>
+
+    <div class="sticky">position sticky</div>
+
+   
+   <br><br><br><br><br><br><br><br><br><br>
+   <br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+
+ <div class="parent">
+
+  <div class="child"> position absolute</div>
+
+
+ </div>
   
   </body>
 
