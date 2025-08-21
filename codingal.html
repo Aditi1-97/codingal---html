@@ -1,92 +1,43 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <title>Position in Css</title>
+  <title>Opacity</title>
   <style>
-    .static{
-      position: static;
+
+    .box{
+      background-color: chartreuse;
       height: 100px;
-      width: 800px;
-      background-color: aqua;
-      margin-bottom: 200px;
     }
 
-    .fixed{
-      position: fixed;
-      height: 50px ;
-      width: 50px;
-      bottom: 0px;
-      right: 0px;
-      background-color: aquamarine;
+    .first{
+      opacity: 0.3;
     }
 
-    .sticky{
-        position: sticky;
-        height: 100px;
-        width: 800px;
-        background-color: blueviolet;
-        top: 0;
+    .second{
+      opacity: 0.5;
     }
 
-    .relative{
-         position: relative;
-         height: 100px;
-         width: 800px;
-        background-color: rgb(214, 161, 96);
-        margin-bottom: 200px;
-        left: 100px;
-        top: 250px;
-        z-index: 50px;
+    .third{
+      opacity: 0.7;
     }
 
-    .parent{
-          position: relative;
-          height: 500px;
-          width: 1000px;
-          background-color: rgb(41, 149, 100);
+    .fourth{
+      opacity: 1;
     }
 
-    .child{
-        position: absolute;
-        height: 50px;
-       width: 100px;
-       background-color: rgb(130, 121, 28);
-       top: 100px;
-       left: 300px;
-    }
-
+    
   </style>
 
   </head>
 
   <body>
+    <div class="box first"></div>
+
+    <div class="box second"></div>
      
-    <div class="static">Welcome to codingal</div>
-
-    <div class="fixed"></div>
-
-    <div class="relative">position relative</div>
-
-    <div class="sticky">position sticky</div>
-
-   
-   <br><br><br><br><br><br><br><br><br><br>
-   <br><br><br><br><br><br><br><br><br><br>
-  <br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br>
-
- <div class="parent">
-  <div class="child"> position absolute</div>
-
-
- </div>
+    <div class="box third"></div>
     
+    <div class="box fourth"></div>
   
   </body>
 
