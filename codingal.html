@@ -1,47 +1,58 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <title>Display flex</title>
+  <title>Position in Css</title>
   <style>
-
-    .box {
-     height: 300px;
-     width: 250px;
+    .static{
+      position: static;
+      height: 100px;
+      width: 800px;
+      background-color: aqua;
+      margin-bottom: 200px;
     }
 
-    .first{
-        background-color: rgb(157, 205, 240);
-        border: 5px solid rgb(86, 157, 207);
+    .fixed{
+      position: fixed;
+      height: 50px ;
+      width: 50px;
+      bottom: 0px;
+      right: 0px;
+      background-color: aquamarine;
     }
 
-    .second{
-         background-color: orange;
-         border: 5px solid orangered;
+    .sticky{
+        position: sticky;
+        height: 100px;
+        width: 800px;
+        background-color: blueviolet;
+        top: 0;
     }
-    
-    .third{
-         background-color: greenyellow;
-         border: 5px solid green;
+
+    .relative{
+         position: relative;
+         height: 100px;
+         width: 800px;
+        background-color: rgb(214, 161, 96);
+        margin-bottom: 200px;
+        left: 100px;
+        top: 250px;
+        z-index: 50px;
     }
 
     .parent{
-       display: flex;
-       flex-direction: row;
-       gap: 50px;
-       flex-wrap: wrap;
-       justify-content: space-between;
+          position: relative;
+          height: 500px;
+          width: 1000px;
+          background-color: rgb(41, 149, 100);
     }
 
-     p {
-     background-color: rgb(203, 77, 151);
-     margin-left: 400px;
-     margin-right: 400px;
-     margin-top: 250px;
-     margin-bottom: 350px;
-     padding-left: 150px; 
-     padding-top: 200px;
-     padding-bottom: 200px;
-     border: 10px dotted rgb(90, 9, 59);
+    .child{
+        position: absolute;
+        height: 50px;
+       width: 100px;
+       background-color: rgb(130, 121, 28);
+       top: 100px;
+       left: 300px;
     }
 
   </style>
@@ -49,20 +60,34 @@
   </head>
 
   <body>
+     
+    <div class="static">Welcome to codingal</div>
 
-  <div class="parent">
+    <div class="fixed"></div>
 
-    <div class="box first"></div>
+    <div class="relative">position relative</div>
 
-     <div class="box second"></div>
- 
-     <div class=" box third"></div>
+    <div class="sticky">position sticky</div>
 
-     <p>Welcome to codingal</p>
+   
+   <br><br><br><br><br><br><br><br><br><br>
+   <br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
 
-  </div>
+ <div class="parent">
+  <div class="child"> position absolute</div>
+
+
+ </div>
     
-
+  
   </body>
 
 
