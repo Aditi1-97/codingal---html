@@ -51,9 +51,11 @@
         
     .img-t{
       display: flex;  
-      gap: 80px;          
+      justify-content: space-between;         
+      width: 1200px;
       margin-top: 40px;
       padding-left: 40px;
+      align-items: center;
       }
 
       .main-img{
@@ -71,7 +73,46 @@
        line-height: 1.6;
        font-weight: normal;
        text-align: left;
-       font-family: 'Times New Roman', Times, serif;
+       font-family: 'Times New Roman', Times, serifv;
+      }
+
+      .banner-parent{
+         display: flex;
+         justify-content: center;
+      }
+      .card{
+         border: 2px solid white;
+      }
+
+      .card-img{
+         width: 100%;
+      }
+
+      .card-btn{
+         background-color: transparent;
+         color: white;
+         padding: 10px 15px;
+         border: 2px solid white;
+         border-radius: 20px;
+      }
+
+      .card-body{
+         padding: 15px;
+      }
+
+      .project-main{
+         display: flex;
+         justify-content: space-between;
+         width: 1200px;
+      }
+
+      .project-parent{
+         display: flex;
+         justify-content: center;
+      }
+
+      .title{
+         text-align: center;
       }
     </style>
 
@@ -98,13 +139,70 @@
 
         </div>
 
-        <div class="img-t">
+
+        <div class="banner-parent">
+         <div class="img-t">
         <img  class="main-img" src="dummy-profile-pic-female-300n300.jpeg" alt="dummy img">
 
         <h2 class="h2">Hi, I'm Aditi. Welcome to my creative space! I love exploring web design and coding.<br>
           Every day I try to learn something new and turn small ideas into meaningful projects. <br>
           Scroll down to see my work and the things I enjoy building!!🚀💻</h2>
           </div>
+        </div>
+
+          <h2 class="title">My Projects</h2>
+          <!--Project section-->
+         <section class="project-parent">
+
+       <div class="project-main">
+        <!--first card-->
+        <div class="card" style="width: 350px;">
+          <img class="card-img" 
+          src="portfolio-img.png" alt="portfolio">
+         <div class="card-body">
+            <h2>Calculator</h2>
+            <p>Fully functional calculator using Html Css and Javascript</p>
+
+            <button class="card-btn">Live Link</button>
+         </div>
+        </div>
+        <!--second card-->
+      <div class="card" style="width: 350px;">
+          <img class="card-img" 
+          src="portfolio-img.png" alt="portfolio">
+         <div class="card-body">
+            <h2>Calculator</h2>
+            <p>Fully functional calculator using Html Css and Javascript</p>
+
+            <button class="card-btn">Live Link</button>
+         </div>
+        </div>
+
+        <!--third card-->
+        <div class="card" style="width: 350px;">
+          <img class="card-img" 
+          src="portfolio-img.png" alt="portfolio">
+         <div class="card-body">
+            <h2>Calculator</h2>
+            <p>Fully functional calculator using Html Css and Javascript</p>
+
+            <button class="card-btn">Live Link</button>
+         </div>
+        </div>
+
+
+
+
+       </div>
+
+
+
+
+
+
+
+         </section>
+
 
     </body>
 </html>
