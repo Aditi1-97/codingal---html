@@ -2,13 +2,22 @@
 <html>
     <head>
         <title>My Portfolio</title>
-    </head>
-
-
+        <link rel="stylesheet" href="styles.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <style>
 
+       #particles-js {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+       }
+
      body {
-        background-image: linear-gradient(to bottom right, #624E88, #8967B3, #CB80AB);
+        background-image: linear-gradient(to bottom right,#040D12, #183D3D, #5C8374);
         height: 200vh;
         font-family: cursive;
         color: white;
@@ -60,13 +69,36 @@
 
       .main-img{
           width: 500px;        
-          border-radius: 20px;
+          border-radius: 30px;
           border: 3px solid white;
           display: block;
           margin: 0;   
-             
+         animation-name: myImageAnimation;
+         animation-duration: 6s;
+         animation-timing-function: ease-in-out;
+         animation-iteration-count: infinite;
       }
      
+      @keyframes myImageAnimation {
+      0% {
+        opacity: 1;
+        transform: translateY(20px);
+      }
+
+      25%{
+         opacity: 1;
+         transform: matrix();
+      }
+      50% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      100% {
+        opacity: 1.5;
+        transform: translateY(-20px);
+      }
+    }
+
       .h2 {
        max-width: 500px;
        font-size: 28px;
@@ -81,11 +113,32 @@
          justify-content: center;
       }
       .card{
-         border: 2px solid white;
+         border: 4px solid white;
+         border-radius: 25px;
+         animation-name: myImageAnimation;
+             animation-duration: 10s;
+             animation-timing-function: ease-in-out;
+             animation-iteration-count: infinite;
       }
+
+      @keyframes myImageAnimation {
+      0% {
+        opacity: 1;
+        transform: translateY(20px);
+      }
+      50% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      100% {
+        opacity: 1.5;
+        transform: translateY(-20px);
+      }
+    }
 
       .card-img{
          width: 100%;
+        border-radius: 25px;
       }
 
       .card-btn{
@@ -114,10 +167,56 @@
       .title{
          text-align: center;
       }
+
+      .about{
+         text-align: center;
+         font-family: 'Times New Roman', Times, serif;
+         font-size: 30px;
+      }
+
+      .about-parent{
+         display: flex;
+         align-items: center;
+         text-align: center;
+      }
+
+      .about-main{
+         display: flex;
+         align-items: center;
+         justify-content: center;
+      }
+
+      .animated-text{
+             animation-name: myTextAnimation;
+             animation-duration: 6s;
+             animation-timing-function: ease-in-out;
+             animation-iteration-count: infinite;
+             text-align: center;
+             align-items: center;
+             font-size: 28px;
+            font-family: 'Times New Roman', Times, serif;
+            }
+
+             @keyframes myTextAnimation {
+            0% {
+            opacity: 0;
+            transform: translateY(20px);
+            }
+            50% {
+            opacity: 1;
+            transform: translateY(0);
+            }
+            100% {
+            opacity: 1.5;
+            transform: translateY(0);
+            }
+            }
     </style>
+    </head>
 
     <body>
         
+        <div id="particles-js"></div>
         <!--navbar-->
 
         <div class="nav-parent">
@@ -134,7 +233,6 @@
            
            <button class="nav-btn">Let's Talk</button>
 
-
           </nav>
 
         </div>
@@ -142,7 +240,7 @@
 
         <div class="banner-parent">
          <div class="img-t">
-        <img  class="main-img" src="dummy-profile-pic-female-300n300.jpeg" alt="dummy img">
+        <img  class="main-img" src="pfp.png" alt="dummy img">
 
         <h2 class="h2">Hi, I'm Aditi. Welcome to my creative space! I love exploring web design and coding.<br>
           Every day I try to learn something new and turn small ideas into meaningful projects. <br>
@@ -158,7 +256,7 @@
         <!--first card-->
         <div class="card" style="width: 350px;">
           <img class="card-img" 
-          src="portfolio-img.png" alt="portfolio">
+          src="portfolio.png" alt="portfolio" >
          <div class="card-body">
             <h2>Calculator</h2>
             <p>Fully functional calculator using Html Css and Javascript</p>
@@ -169,7 +267,7 @@
         <!--second card-->
       <div class="card" style="width: 350px;">
           <img class="card-img" 
-          src="portfolio-img.png" alt="portfolio">
+          src="portfolio.png" alt="portfolio">
          <div class="card-body">
             <h2>Calculator</h2>
             <p>Fully functional calculator using Html Css and Javascript</p>
@@ -181,7 +279,7 @@
         <!--third card-->
         <div class="card" style="width: 350px;">
           <img class="card-img" 
-          src="portfolio-img.png" alt="portfolio">
+          src="portfolio.png" alt="portfolio">
          <div class="card-body">
             <h2>Calculator</h2>
             <p>Fully functional calculator using Html Css and Javascript</p>
@@ -190,19 +288,134 @@
          </div>
         </div>
 
-
-
-
        </div>
-
-
-
-
-
-
 
          </section>
 
+         <!--About section-->
+         <h2 class="about">About Me</h2>
+    <section class="about-parent">
+        <div class="about-main">
+            <div class="about-me">
+                <p class="animated-text">Welcome to my portfolio!! I'm Aditi Srivastava - a curious learner who loves exploring creativity and technology. <br>
+                  I'm currently learning coding and enjoy turning ideas into visuals, stories, or simple projects that help me grow my skills. <br> <br>
+                  Whether it's coding a small feature or creating something unique, I always put my creativity and effort into what I do. <br>
+                  I'm excited to keep improving, experimenting, and building more awesome things. Thanks for visiting my portfolio — I hope you enjoy my work!
+                </p>
+            </div>
+            </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 100,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#00d4ff"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.8,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 1,
+                            "opacity_min": 0.4,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 5,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 2,
+                            "size_min": 1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#00d4ff",
+                        "opacity": 0.6,
+                        "width": 1.5
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": true,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "repulse"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 400,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 100,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+        });
+    </script>
 
     </body>
 </html>
