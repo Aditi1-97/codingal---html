@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Restaurant Banner</title>
+    <title>Restaurant Website</title>
     <style>
         body {
             margin: 0;
@@ -10,6 +10,7 @@
             height: auto;
         }
 
+        /* BANNER SECTION */
         .banner {
             width: 100%;
             height: auto;
@@ -21,7 +22,6 @@
             align-items: center;
         }
 
-        /* Left Side */
         .left {
             width: 45%;
         }
@@ -40,7 +40,6 @@
             margin: 8px 0;
         }
 
-        /* Right Side */
         .right {
             width: 50%;
             display: flex;
@@ -63,7 +62,6 @@
             object-fit: cover;
         }
 
-        /* Discount badge */
         .offer {
             position: absolute;
             top: 10px;
@@ -86,11 +84,97 @@
             font-size: 10px;
         }
 
+
+        /* SOCIAL MEDIA SECTION */
+        .social-section {
+            text-align: center;
+            padding: 50px 20px;
+            background: #181818;
+            color: white;
+        }
+
+        .social-section h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: orange;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .social-icons img {
+            width: 45px;
+            transition: 0.3s;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.15);
+            filter: brightness(1.3) drop-shadow(0 0 5px orange);
+        }
+
+
+        /* FOOTER */
+        footer {
+            background: #0d0d0d;
+            padding: 40px 20px;
+            color: #ccc;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-box {
+            width: 30%;
+            min-width: 220px;
+            margin-bottom: 20px;
+        }
+
+        .footer-box h3 {
+            color: orange;
+            margin-bottom: 10px;
+        }
+
+        .footer-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-box ul li a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        .footer-box ul li a:hover {
+            color: orange;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+
     </style>
 </head>
 
 <body>
 
+<!-- BANNER SECTION -->
 <div class="banner">
     <div class="left">
         <h3>LOGO HERE</h3>
@@ -111,18 +195,64 @@
         </div>
 
         <div class="circle">
-            <img src="pizza.jpg" alt="">
+            <img src="https://cdn.pixabay.com/photo/2020/02/16/20/20/korean-dish-4854695_1280.jpg" alt="">
         </div>
 
         <div class="circle">
-            <img src="https://cdn.pixabay.com/photo/2016/11/29/04/49/blueberries-1867398_1280.jpg" alt="">
+            <img src="https://cdn.pixabay.com/photo/2017/02/15/10/57/pizza-2068272_1280.jpg" alt="">
         </div>
 
         <div class="circle">
-            <img src="https://cdn.pixabay.com/photo/2017/04/30/16/18/pretzel-2273216_1280.jpg" alt="">
+            <img src="https://cdn.pixabay.com/photo/2022/01/08/13/43/meat-6924014_1280.jpg" alt="">
         </div>
     </div>
 </div>
+
+
+<!-- SOCIAL MEDIA SECTION -->
+<div class="social-section">
+    <h2>Follow Us</h2>
+    <p>Stay connected with our latest offers and updates!</p>
+
+    <div class="social-icons">
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" alt="YouTube"></a>
+    </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-container">
+
+        <div class="footer-box">
+            <h3>About Us</h3>
+            <p>We serve fresh, tasty meals with love. Visit us for an unforgettable dining experience.</p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Offers</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-box">
+            <h3>Contact</h3>
+            <p>📞 +1 234 567 890</p>
+            <p>📍 251 Holden Street, Santee, CA 92071</p>
+            <p>✉️ info@yourrestaurant.com</p>
+        </div>
+
+    </div>
+
+    <p class="copyright">© 2025 Your Restaurant. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
