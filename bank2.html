@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Bank Tracker App </title>
+
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body { background: #f8f9fb; }
+    .card { border: none; transition: transform .15s ease; }
+    .card:hover { transform: translateY(-4px); }
+    .activity { background: #fff; border: 1px solid #e7ecf3; }
+    .small-muted { font-size: 0.85rem; color: #6c757d; }
+    .table-fixed { word-break: break-word; }
+  </style>
+</head>
+<body>
+
+  <header class="bg-primary text-white py-3 mb-4">
+    <div class="container d-flex justify-content-between align-items-center">
+      <h1 class="h4 mb-0">💰 Income & Expense Tracker</h1>
+      <small class="small-muted">Basic HTML • CSS • Bootstrap • JS</small>
+    </div>
+  </header>
+
+   <main class="container">
+    <div class="row text-center mb-4">
+      <div class="col-md-4 mb-3">
+        <div class="card bg-success text-white">
+          <div class="card-body">
+            <h6 class="card-title mb-1">Total Income</h6>
+            <div id="totalIncome" class="h4">₹0.00</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <div class="card bg-danger text-white">
+          <div class="card-body">
+            <h6 class="card-title mb-1">Total Expense</h6>
+            <div id="totalExpense" class="h4">₹0.00</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <div class="card bg-info text-white">
+          <div class="card-body">
+            <h6 class="card-title mb-1">Net Balance</h6>
+            <div id="netBalance" class="h4">₹0.00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    
+    <h2 class="h6 mb-2">Add New Transaction</h2>
+    <form id="transactionForm" class="row g-2 mb-4">
+      <div class="col-md-2">
+        <select id="type" class="form-select" required>
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
+        </select>
+      </div>
+
+      <div class="col-md-5">
+        <input id="category" class="form-control" placeholder="Category (Salary, Groceries...)" required>
+      </div>
+
+      <div class="col-md-3">
+        <input id="amount" type="number" min="0.01" step="0.01" class="form-control" placeholder="Amount (₹)" required>
+      </div>
+
+      <div class="col-md-2 d-grid">
+        <button class="btn btn-primary" type="submit">Add</button>
+      </div>
+    </form>
+
+    <hr>
+
+
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <h2 class="h6 mb-0">Transaction History</h2>
+      <div class="d-flex gap-2">
+        <select id="filterType" class="form-select form-select-sm">
+          <option value="all">Show All</option>
+          <option value="income">Only Income</option>
+          <option value="expense">Only Expense</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-striped table-hover table-fixed">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="transactionList"></tbody>
+      </table>
+    </div>
+
+  </main>
+
+  <!-- Bootstrap JS (optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    
+    let transactions = [];
+
+    
+    const form = document.getElementById('transactionForm');
+    const typeEl = document.getElementById('type');
+    const categoryEl = document.getElementById('category');
+    const amountEl = document.getElementById('amount');
+    const listEl = document.getElementById('transactionList');
+    const filterEl = document.getElementById('filterType');
+    const totalIncomeEl = document.getElementById('totalIncome');
+    const totalExpenseEl = document.getElementById('totalExpense');
+    const netBalanceEl = document.getElementById('netBalance');
+    const seedBtn = document.getElementById('seedBtn');
+    const clearBtn = document.getElementById('clearBtn');
+
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('transactions');
+      if (saved) transactions = JSON.parse(saved);
+      render();
+      updateTotals();
+    });
+
+    
+    function save() {
+      localStorage.setItem('transactions', JSON.stringify(transactions));
+    }
+
+    
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const type = typeEl.value;
+      const category = categoryEl.value.trim();
+      const amount = parseFloat(amountEl.value);
+      if (!category || isNaN(amount) || amount <= 0) {
+        alert('Enter valid category and amount.');
+        return;
+      }
+      const tx = {
+        id: Date.now(),
+        type,
+        category,
+        amount: +amount.toFixed(2),
+        date: new Date().toLocaleDateString()
+      };
+      transactions.unshift(tx);
+      save();
+      render();
+      updateTotals();
+      form.reset();
+    });
+
+    
+    filterEl.addEventListener('change', render);
+
+    function render() {
+      const filter = filterEl.value;
+      listEl.innerHTML = '';
+      const filtered = transactions.filter(t => filter === 'all' ? true : t.type === filter);
+      filtered.forEach(tx => {
+        const tr = document.createElement('tr');
+        const typeText = tx.type === 'income' ? 'Income' : 'Expense';
+        tr.innerHTML = `
+          <td>${typeText}</td>
+          <td>${escapeHtml(tx.category)}</td>
+          <td class="${tx.type === 'income' ? 'text-success' : 'text-danger'}">₹${tx.amount.toFixed(2)}</td>
+          <td>${tx.date}</td>
+          <td><button class="btn btn-sm btn-outline-danger">Delete</button></td>
+        `;
+        
+        tr.querySelector('button').addEventListener('click', () => {
+          transactions = transactions.filter(t => t.id !== tx.id);
+          save();
+          render();
+          updateTotals();
+        });
+        listEl.appendChild(tr);
+      });
+    }
+
+    
+    function updateTotals() {
+      let income = 0, expense = 0;
+      transactions.forEach(t => {
+        if (t.type === 'income') income += t.amount;
+        else expense += t.amount;
+      });
+      totalIncomeEl.textContent = '₹' + income.toFixed(2);
+      totalExpenseEl.textContent = '₹' + expense.toFixed(2);
+      const net = income - expense;
+      netBalanceEl.textContent = '₹' + net.toFixed(2);
+
+
+      const netCard = netBalanceEl.closest('.card');
+      if (net >= 0) {
+        netCard.classList.remove('bg-danger');
+        netCard.classList.add('bg-info', 'text-white');
+      } else {
+        netCard.classList.remove('bg-info');
+        netCard.classList.add('bg-danger', 'text-white');
+      }
+    }
+
+
+    seedBtn.addEventListener('click', () => {
+      const sample = [
+        { id: Date.now()+1, type: 'income', category: 'Salary', amount: 20000, date: new Date().toLocaleDateString() },
+        { id: Date.now()+2, type: 'expense', category: 'Groceries', amount: 2500.50, date: new Date().toLocaleDateString() },
+        { id: Date.now()+3, type: 'expense', category: 'Rent', amount: 8000, date: new Date().toLocaleDateString() }
+      ];
+      transactions = sample.concat(transactions);
+      save();
+      render();
+      updateTotals();
+      alert('Sample transactions added. Now try filtering, deleting and adding new ones!');
+    });
+
+
+    clearBtn.addEventListener('click', () => {
+      if (!confirm('Clear all transactions?')) return;
+      transactions = [];
+      save();
+      render();
+      updateTotals();
+    });
+
+    
+    function escapeHtml(str) {
+      return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+  </script>
+</body>
+</html>
