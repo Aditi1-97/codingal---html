@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>To-Do List</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: "Poppins", sans-serif;
+            }
+
+            body{
+                background: #e7e9fb;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+
+            .container{
+                background: #fff;
+                padding: 25px;
+                width: 350px;
+                border-radius: 10px;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            h1{
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .input-box{
+                display: flex;
+                gap: 10px;
+            }
+
+            #task-input{
+                flex: 1;
+                padding: 10px;
+                border: 2px solid #8c8cff;
+                border-radius: 5px;
+                outline: none;
+            }
+
+            #add-btn{
+                padding: 10px 15px;
+                background: #6366f1;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            #add-btn:hover{
+                background: #5d5fe5;
+            }
+
+            ul{
+                margin-top: 20px;
+                list-style: none;
+            }
+
+            li{
+                background: #ebebfa;
+                padding: 10px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .completed{
+                text-decoration: line-through;
+                opacity: 0.6;
+            }
+
+            .delete-btn{
+                background: red;
+                color: white;
+                border: none;
+                padding: 5px 8px;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>📝To-Do List</h1>
+
+            <div class="input-box">
+                <input type="text" id="task-input" placeholder="Enter a task...">
+                <button id="add-btn">Add</button>
+            </div>
+
+            <ul id="task-list"></ul>
+        </div>
+
+        <script>
+            const input = document.getElementById("task-input");
+            const addBtn = document.getElementById("add-btn");
+            const taskList = document.getElementById("task-list");
+
+        
+            window.onload = loadTasks;
+
+            addBtn.addEventListener("click", addTask);
+            input.addEventListener("keypress", (e) => {
+                if (e.key === "Enter") addTask();
+            });
+
+            function addTask(){
+                const text = input.value.trim();
+                if (text === "") return alert("Please enter a task!");
+
+                createTaskElement(text);
+                saveTask(text);
+                input.value = "";
+            }
+
+            function createTaskElement(taskText){
+                const li = document.createElement("li");
+                li.innerHTML = `
+                    <span class="task">${escapeHtml(taskText)}</span>
+                    <button class="delete-btn">X</button>
+                `;
+
+                // Complete task event
+                li.querySelector(".task").addEventListener("click", function () {
+                    this.classList.toggle("completed");
+                    // Note: completed state isn't persisted in this simple version.
+                });
+
+                // Delete task event
+                li.querySelector(".delete-btn").addEventListener("click", function () {
+                    li.remove();
+                    deleteTask(taskText);
+                });
+
+                taskList.appendChild(li);
+            }
+
+            function saveTask(task){
+                let tasks =  JSON.parse(localStorage.getItem("tasks")) || [];
+                tasks.push(task);
+                localStorage.setItem("tasks", JSON.stringify(tasks));
+            }
+
+            
+            function deleteTask(task){
+                let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+                const idx = tasks.indexOf(task);
+                if (idx > -1) {
+                    tasks.splice(idx, 1);
+                    localStorage.setItem("tasks", JSON.stringify(tasks));
+                }
+            }
+
+            function loadTasks(){
+                const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+                tasks.forEach(t => createTaskElement(t));
+            }
+
+            
+            function escapeHtml(str) {
+                return str.replace(/[&<>"']/g, function(m) {
+                    return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[m];
+                });
+            }
+        </script>
+    </body>
+</html>
